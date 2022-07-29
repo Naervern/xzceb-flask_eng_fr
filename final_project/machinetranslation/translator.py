@@ -1,3 +1,6 @@
+## Author: Naervern (Antonio Maximiano)
+## Done for IBM's Python Project for AI & App Dev course
+
 import json
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
