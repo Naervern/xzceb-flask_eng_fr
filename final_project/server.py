@@ -8,20 +8,25 @@ logged = []
 @app.route("/englishToFrench")
 def translateToFrench():
     textToTranslate = request.args.get('textToTranslate')
-    translated = translator.translateToFrench(textToTranslate)
+    if textToTranslate is None or textToTranslate == "" :
+        return "Error: no input"
+    translated = translator.english_to_french(textToTranslate)
     logged.append({"mode": "en-fr", "input": textToTranslate, "output": translated})
     return "%s translated into %s" %(textToTranslate, translated)
 
 @app.route("/frenchToEnglish")
 def translateToEnglish():
     textToTranslate = request.args.get('textToTranslate')
-    translated = translator.translateToEnglish(textToTranslate)
+    if textToTranslate is None or textToTranslate == "" :
+        return "Error: no input"
+    translated = translator.french_to_english(textToTranslate)
     logged.append({"mode": "fr-en", "input": textToTranslate, "output": translated})
     return "%s translated into %s" %(textToTranslate, translated)
 
 @app.route("/")
 def renderIndexPage():
     return json.dumps(logged)
+render_template("index.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
