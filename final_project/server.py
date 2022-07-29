@@ -12,7 +12,7 @@ def translateToFrench():
         return "Error: no input"
     translated = translator.english_to_french(textToTranslate)
     logged.append({"mode": "en-fr", "input": textToTranslate, "output": translated})
-    return "Source (EN)=[\n%s\n]\n\nOutput (FR)=[\n%s\n]" %(textToTranslate, translated)
+    return "Output (FR)=[\n%s\n]" %translated
 
 @app.route("/frenchToEnglish")
 def translateToEnglish():
@@ -21,7 +21,7 @@ def translateToEnglish():
         return "Error: no input"
     translated = translator.french_to_english(textToTranslate)
     logged.append({"mode": "fr-en", "input": textToTranslate, "output": translated})
-    return "Source (FR)=[\n%s\n]\n\nOutput (EN)=[\n%s\n]" %(textToTranslate, translated)
+    return "Output (EN)=[\n%s\n]" %translated
 
 @app.route("/")
 def renderIndexPage():
