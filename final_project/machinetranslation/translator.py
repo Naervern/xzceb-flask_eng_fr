@@ -1,11 +1,14 @@
-## Author: Naervern (Antonio Maximiano)
-## Done for IBM's Python Project for AI & App Dev course
+'''
+This is the translator module for the IBM python project course
+Author: Naervern (Antonio Maximiano)
+Done for IBM's Python Project for AI & App Dev course
+'''
 
-import json
+import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-import os
 from dotenv import load_dotenv
+# import json only when making the server ##
 
 load_dotenv()
 
@@ -20,17 +23,18 @@ language_translator = LanguageTranslatorV3(
 
 language_translator.set_service_url(url)
 
-def englishToFrench(englishText):
-    if englishText == None or englishText == "" : return "Error: no input"
-    else:
-        frenchText = language_translator.translate(text = englishText, model_id = 'en-fr').get_result()
-    return frenchText.get("translations")[0].get("translation")
+def english_to_french(english_text):
+    '''translates english to french'''
+    if english_text is None or english_text == "" :
+        return "Error: no input"
+    french_text = language_translator.translate(
+        text = english_text, model_id = 'en-fr').get_result()
+    return french_text.get("translations")[0].get("translation")
 
-def frenchToEnglish(frenchText):
-    if frenchText == None or frenchText == "" : return "Error: no input"
-    else:
-        englishText = language_translator.translate(text = frenchText, model_id = 'fr-en').get_result()
-    return englishText.get("translations")[0].get("translation")
-    
-
-print(englishToFrench(""))
+def french_to_english(french_text):
+    '''translates french to english'''
+    if french_text is None or french_text == "" :
+        return "Error: no input"
+    english_text = language_translator.translate(
+        text = french_text, model_id = 'fr-en').get_result()
+    return english_text.get("translations")[0].get("translation")
