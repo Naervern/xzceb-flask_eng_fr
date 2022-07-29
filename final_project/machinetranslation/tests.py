@@ -5,7 +5,7 @@ class TestEn_Fr (unittest.TestCase):
 	def test_english(self):
 		self.assertIsNotNone(englishToFrench(""))
         self.assertEqual(englishToFrench(""), "Error: no input")
-		self.assertEqual(englishToFrench("Hello"), "Bonjour")
+        self.assertEqual(englishToFrench("Hello"), "Bonjour")
 		self.assertEqual(englishToFrench("Yes"), "Oui")
 		self.assertEqual(englishToFrench("I speak Portuguese"), "Je parle portugais")
 		self.assertNotEqual(englishToFrench("Hello"), "Hello")

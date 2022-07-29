@@ -19,12 +19,10 @@ language_translator.set_service_url(url)
 
 def englishToFrench(englishText):
 	if englishText == None or englishText == "" : return "Error: no input"
-    frenchText = language_translator.translate(
-			text = englishText, model_id = 'en-fr').get_result()
+    frenchText = language_translator.translate(text = englishText, model_id = 'en-fr').get_result()
     return frenchText.get("translations")[0].get("translation")
 
 def frenchToEnglish(frenchText):
 	if frenchText == None or frenchText == "" : return "Error: no input"
-    englishText = language_translator.translate(
-			text = frenchText, model_id = 'fr-en').get_result()
+    englishText = language_translator.translate(text = frenchText, model_id = 'fr-en').get_result()
     return englishText.get("translations")[0].get("translation")
