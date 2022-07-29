@@ -24,6 +24,6 @@ class TestFr_En (unittest.TestCase):
         self.assertEqual(french_to_english("Oui"), "Yes")
         self.assertEqual(french_to_english("Je parle portugais"), "I speak Portuguese")
         self.assertNotEqual(french_to_english("Bonjour"), "Bonjour")
-        self.assertEqual(french_to_english("Capitulation"), "Victory")
+        self.assertNotEqual(french_to_english("Capitulation"), "Victory")
 
 unittest.main()
