@@ -1,3 +1,6 @@
+## Author: Naervern (Antonio Maximiano)
+## Done for IBM's Python Project for AI & App Dev course
+
 import unittest
 from translator import frenchToEnglish, englishToFrench
 
